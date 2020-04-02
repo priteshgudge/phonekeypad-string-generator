@@ -1,0 +1,27 @@
+{
+  "name": "phonekeypad-string-generator",
+  "version": "1.0.0",
+  "description": "PhoneKeypad String Combination Generator",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priteshgudge/phonekeypad-string-generator.git"
+  },
+  "author": "Pritesh Gudge",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/priteshgudge/phonekeypad-string-generator/issues"
+  },
+  "homepage": "https://github.com/priteshgudge/phonekeypad-string-generator#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
