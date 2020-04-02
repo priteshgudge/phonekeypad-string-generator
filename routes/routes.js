@@ -1,5 +1,5 @@
 const dataReader = require('../data/file-reader.js');
-const dataProcessor = require('../core/processData.js');
+const dataProcessor = require('../data/processData.js');
 
 
 const appRouter = (app, fs) => {

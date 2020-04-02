@@ -1,4 +1,4 @@
-const fileReader = require('../data/file-reader.js');
+const fileReader = require('./file-reader.js');
 
 const letterMap = {
     "a":"2",
