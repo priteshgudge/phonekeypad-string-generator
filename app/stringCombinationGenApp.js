@@ -18,10 +18,9 @@ const generateTrie = () => {
         }
         trieRoot.add(key, value);
         counter++;
-        if (counter >= 10000){
-            break;
-        }
-
+        // if (counter >= 10000){
+        //     break;
+        // }
     }
     return trieRoot;
 
@@ -55,19 +54,19 @@ const setupApp = () => {
 
 };
 
-const findArrayofMatchingStrings = (inputString) => {
+const findArrayOfMatchingStrings = (inputString) => {
     try {
-        outputStringsArray = generateCombinationsPkg.find(trieRootRef, inputString, []);
+        const outputStringsArray = generateCombinationsPkg.executeGenerateCombinations(trieRootRef, inputString, []);
         return ({"objects":outputStringsArray});
     }catch (err){
         console.log(err);
-        return ({"message": "Some Error Occured while processing the request"});
+        return ({"message": "Some Error Occurred while processing the request"});
     }
 };
 
 module.exports = {
     setupApp: setupApp,
-    findArrayofMatchingStrings: findArrayofMatchingStrings
+    findArrayOfMatchingStrings: findArrayOfMatchingStrings
 };
 
 
