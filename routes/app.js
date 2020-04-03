@@ -5,10 +5,15 @@ const appRoutes = (app, fs) => {
         const requestData = req.body;
         console.log(`Request Data: ${JSON.stringify(requestData)}`);
         if(requestData && requestData.ph && requestData.ph.length > 0){
-            responseObjects = appPkg.findArrayofMatchingStrings(requestData.ph);
-            res.send({objects:responseObjects});
+            responseObject = appPkg.findArrayofMatchingStrings(requestData.ph);
+            responseObjectJson = {
+                ...responseObject,
+                success:true
+            }
+            res.send(responseObject);
         }else{
-            res.send({error: "Invalid Data"})
+            res.send({"message": "Invalid Data",
+                    success:false})
 
         }
 

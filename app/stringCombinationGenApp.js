@@ -56,7 +56,13 @@ const setupApp = () => {
 };
 
 const findArrayofMatchingStrings = (inputString) => {
-    outputStringsArray = generateCombinationsPkg.find(trieRootRef, inputString, []);
+    try {
+        outputStringsArray = generateCombinationsPkg.find(trieRootRef, inputString, []);
+        return ({"objects":outputStringsArray});
+    }catch (err){
+        console.log(err);
+        return ({"message": "Some Error Occured while processing the request"});
+    }
 };
 
 module.exports = {

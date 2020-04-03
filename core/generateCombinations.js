@@ -65,7 +65,7 @@ const find = (trieRoot, stringVal, skipCharList=[]) => {
     for(let s of stringsArray){
         let resultSet = findAllWords(trieRoot, s,[],{}, true);
 
-        for(let ele of resultSet.keys()){
+        for(let ele of Object.keys(resultSet)){
             let w = ele.split("-");
 
             if ((w.join("")).length === s.length){
