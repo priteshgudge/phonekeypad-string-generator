@@ -1,16 +1,28 @@
 # phonekeypad-string-generator
 
-To Run: 
+The core logic is built on a Trie based algorithm. 
+If a match is not found by using the given string, 
+patterns are generated avoiding consecutive skipping. The second part is more or less brute force.
+
+## Run Unit Tests
+```$xslt
+npm run test
+```
+
+## To Run: 
 ```$xslt
 npm run start
 ```
 
+## Verify
 Verify with Ping
 ```$xslt
 http://localhost:3001/ping
 ```
 
+### How to Use
 Postman Link: https://www.getpostman.com/collections/e80f1b37e618ca298e7f
+Curl Request:
 ```$xslt
 curl -X POST \
   http://localhost:3001/recommend-user-friendly-words \
@@ -22,7 +34,4 @@ curl -X POST \
 }'
 ```
 
-To Test:
-```$xslt
-npm run test
-```
+

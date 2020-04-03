@@ -47,17 +47,6 @@ const generateNumberWordsMapper = (wordsArrayValues) => {
             numberWordsMap[value] = [v];
         }
     }
-    // wordsArrayValues.forEach(
-    //     word => {
-    //         let value = word.split('').map(key => letterMap[key]).join('');
-    //         // numberWordsMap[value] = {
-    //         //             //     ... numberWordsMap[value],
-    //         //             //     word
-    //         //             // };
-    //         numberWordsMap[value] =
-    //     }
-    // );
-
     return numberWordsMap;
 
 };

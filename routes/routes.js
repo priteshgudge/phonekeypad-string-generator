@@ -14,8 +14,6 @@ const appRouter = (app, fs) => {
 
     appRoutes(app,fs);
 
-    // run our user route module here to complete the wire up
-    // userRoutes(app, fs);
 };
 
 // this line is unchanged

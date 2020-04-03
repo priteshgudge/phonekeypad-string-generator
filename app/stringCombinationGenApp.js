@@ -25,29 +25,9 @@ const generateTrie = () => {
 
 const setupApp = () => {
     // Equivalent to setting up DB connection/DAO maybe
-
-    // try {
-    //     const path = './trie.backup';
-    //     if (fs.existsSync(path)) {
-    //         const fileData = fs.readFile(path,null,null);
-    //         trieRootRef = serialize.unserialize(fileData);
-    //     }
-    // } catch(err) {
-    //     console.error(err)
-    // }
     console.log("Generating Trie");
     trieRootRef = generateTrie();
     console.log("Trie Generation Complete");
-
-    // try {
-    //     const path = './trie.backup';
-    //     const fileData = serialize.serialize(trieRootRef);
-    //     fs.writeFile(path, fileData);
-    //
-    // } catch(err) {
-    //     console.error(err)
-    // }
-
 
 };
 

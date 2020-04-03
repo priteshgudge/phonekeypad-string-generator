@@ -97,10 +97,9 @@ const getSkipLists = (stringLength, arr, number, result = []) => {
 const getAllListsOfAllSkipChars = (stringVal, strLen, ele) =>{
     let size = ele;
     let arrayObj = [] ;
-    for(let i =0 ; i < size; i++){
+    for(let i =0 ; i < size; i++) {
         arrayObj[i] = 0;
     }
-    //while(size--) arrayObj[size] = 0;
 
     let result = getSkipLists(strLen, arrayObj, 0, []);
     //console.log(`Skip List${JSON.stringify(result)}`);
@@ -130,59 +129,6 @@ const executeGenerateCombinations =  (trieRoot, stringVal) =>{
         return result;
     }
 };
-
-// const find = (trieRoot, stringVal, skipCharList=[]) => {
-//     let stringsArray = [];
-//     if (skipCharList && skipCharList.length > 0){
-//         while(true){
-//             let tmpString = "";
-//             for(let i=0; i<stringVal.length; i++){
-//                 if(!skipCharList.includes(i)){
-//                     tmpString = tmpString + stringVal.substring(i,i+1)
-//                 }
-//             }
-//             stringsArray.push(tmpString);
-//             for(let j=0; j<skipCharList.length;j++){
-//                 skipCharList[j] = skipCharList[j] + 1
-//             }
-//
-//             if (skipCharList[0] >= stringVal.length){
-//                 break
-//             }
-//             skipCharList.reverse()
-//         }
-//     }else{
-//         stringsArray = [stringVal];
-//     }
-//
-//     let resultList = [];
-//
-//     for(let s of stringsArray){
-//         let resultSet = findAllWords(trieRoot, s,[],{}, true);
-//
-//         for(let ele of Object.keys(resultSet)){
-//             let w = ele.split("-");
-//
-//             if ((w.join("")).length === s.length){
-//                 resultList.push(ele)
-//             }
-//         }
-//     }
-//
-//     if (resultList.length > 0){
-//         return resultList
-//     }else{
-//         let skipList = [0];
-//         for(let i=0; i< skipCharList.length; i++){
-//             skipList.push((i+1)*2)
-//         }
-//         if(skipList.length >= Math.floor((stringVal.length+1)/2)){
-//             return []
-//         }
-//         resultList = find(trieRoot, stringVal, skipList)
-//     }
-//     return resultList
-// };
 
 module.exports = {
     executeGenerateCombinations: executeGenerateCombinations
