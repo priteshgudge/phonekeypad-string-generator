@@ -68,7 +68,7 @@ const find2 = (trieRoot, stringVal, listOfSkipCharsList=[]) => {
             }
         }
     }
-    console.log(`resList ${JSON.stringify(resultList)}`);
+    //console.log(`resList ${JSON.stringify(resultList)}`);
     return resultList;
 };
 
