@@ -1,5 +1,4 @@
-const dataReader = require('../data/file-reader.js');
-const dataProcessor = require('../data/processData.js');
+const {dataRoutes} = require("./data");
 
 
 const appRouter = (app, fs) => {
@@ -10,13 +9,7 @@ const appRouter = (app, fs) => {
         res.send({"status":"pong"});
     });
 
-    app.get('/showdata', (req, res) => {
-        res.send(JSON.stringify(dataReader.wordsArray));
-    });
-
-    app.get('/numbermaps', (req, res) => {
-        res.send(dataProcessor.numberWordsMapsArrayMap);
-    });
+    dataRoutes(app,fs);
 
     // run our user route module here to complete the wire up
     // userRoutes(app, fs);

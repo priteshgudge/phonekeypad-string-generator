@@ -1,4 +1,4 @@
-import {Trie} from "./trie";
+
 
 const generateCombination = (trieRoot, inputString) => {
     let validStringList = [];
@@ -87,4 +87,8 @@ const find = (trieRoot, stringVal, skipCharList=[]) => {
         resultList = find(trieRoot, stringVal, skipList)
     }
     return resultList
+};
+
+module.exports = {
+    find: find
 };

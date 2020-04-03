@@ -39,15 +39,24 @@ class DefaultDict {
 
 const generateNumberWordsMapper = (wordsArrayValues) => {
     let numberWordsMap = {} ;//new DefaultDict([]);
-    wordsArrayValues.forEach(
-        word => {
-            let value = word.split('').map(key => letterMap[key]).join('');
-            numberWordsMap[value] = {
-                ... numberWordsMap[value],
-                word
-            };
+    for(let v of wordsArrayValues){
+        let value = v.split('').map(key => letterMap[key]).join('');
+        if(numberWordsMap.hasOwnProperty(value)){
+            numberWordsMap[value].push(v);
+        }else {
+            numberWordsMap[value] = [v];
         }
-    );
+    }
+    // wordsArrayValues.forEach(
+    //     word => {
+    //         let value = word.split('').map(key => letterMap[key]).join('');
+    //         // numberWordsMap[value] = {
+    //         //             //     ... numberWordsMap[value],
+    //         //             //     word
+    //         //             // };
+    //         numberWordsMap[value] =
+    //     }
+    // );
 
     return numberWordsMap;
 

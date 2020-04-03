@@ -21,7 +21,7 @@ class Trie{
     //Adding a word in the trie structure
     add(keyStr, wordlList){
         let node = this.rootNode;
-        for(let char of keyStr.split()) {
+        for(let char of keyStr.split("")) {
             let foundInChild = false;
             //Search for char in children of current node
             for (let child of node.children) {
@@ -56,7 +56,7 @@ class Trie{
             return [];
         }
 
-        for(let char of prefix.split()){
+        for(let char of prefix.split('')){
             let charNotFound = true;
             // Search through all the children of the present node
             for(let child of node.children){

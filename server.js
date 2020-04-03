@@ -1,6 +1,13 @@
 // load up the express framework and body-parser helper
 const express = require('express');
 const bodyParser = require('body-parser');
+const application = require('./app/stringCombinationGenApp');
+
+
+console.time('setupApp');
+
+// Setting up data in the app
+application.setupApp();
 
 // create an instance of express to serve our end points
 const app = express();
@@ -16,6 +23,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // this is where we'll handle our various routes from
 const routes = require('./routes/routes.js')(app, fs);
+
+console.timeEnd('setupApp');
 
 // finally, launch our server on port 3001.
 const server = app.listen(3001, () => {
