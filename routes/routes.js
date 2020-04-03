@@ -1,3 +1,4 @@
+const {appRoutes} = require("./app");
 const {dataRoutes} = require("./data");
 
 
@@ -10,6 +11,8 @@ const appRouter = (app, fs) => {
     });
 
     dataRoutes(app,fs);
+
+    appRoutes(app,fs);
 
     // run our user route module here to complete the wire up
     // userRoutes(app, fs);
