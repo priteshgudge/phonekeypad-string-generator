@@ -18,9 +18,6 @@ const generateTrie = () => {
         }
         trieRoot.add(key, value);
         counter++;
-        // if (counter >= 10000){
-        //     break;
-        // }
     }
     return trieRoot;
 
