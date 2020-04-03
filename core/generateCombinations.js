@@ -44,8 +44,10 @@ const find2 = (trieRoot, stringVal, listOfSkipCharsList=[]) => {
             for(let i=0; i<stringVal.length; i++){
                 if(!skipList.includes(i)){
                     tmpString = tmpString + stringVal.substring(i,i+1)
+
                 }
             }
+            //console.log(tmpString);
             stringsArray.push(tmpString);
         }
     }else{
@@ -53,10 +55,11 @@ const find2 = (trieRoot, stringVal, listOfSkipCharsList=[]) => {
     }
 
     let resultList = [];
-
+    //console.log(`Str Array ${JSON.stringify(stringsArray)}`);
     for(let s of stringsArray){
+        //console.log(`S: ${s}`);
         let resultSet = findAllWords(trieRoot, s,[],{}, true);
-
+        //console.log(`resultSet ${JSON.stringify(resultSet)}`);
         for(let ele of Object.keys(resultSet)){
             let w = ele.split("-");
 
@@ -65,10 +68,12 @@ const find2 = (trieRoot, stringVal, listOfSkipCharsList=[]) => {
             }
         }
     }
+    console.log(`resList ${JSON.stringify(resultList)}`);
     return resultList;
 };
 
 const getSkipLists = (stringLength, arr, number, result = []) => {
+
     for(let x = 0; x <stringLength; x++){
         if (number === 0){
             if( x < stringLength){
@@ -81,8 +86,11 @@ const getSkipLists = (stringLength, arr, number, result = []) => {
         if(number + 1 < arr.length){
             getSkipLists(stringLength, arr, number + 1, result)
         }
-        result.push([arr])
+        //console.log(`Arr ${JSON.stringify(arr)}`);
+        const arrayCopy = arr.slice();
+        result.push(arrayCopy)
     }
+
     return result;
 };
 
@@ -95,13 +103,15 @@ const getAllListsOfAllSkipChars = (stringVal, strLen, ele) =>{
     //while(size--) arrayObj[size] = 0;
 
     let result = getSkipLists(strLen, arrayObj, 0, []);
+    //console.log(`Skip List${JSON.stringify(result)}`);
     let skipList = [];
     for(let r of result){
         if (r[r.length -1] < stringVal.length){
             skipList.push(r)
         }
     }
-    return skipList
+    //console.log(`Skip List ${JSON.stringify(skipList)}`);
+    return skipList;
 };
 
 const executeGenerateCombinations =  (trieRoot, stringVal) =>{
@@ -113,6 +123,9 @@ const executeGenerateCombinations =  (trieRoot, stringVal) =>{
     } else{
         for(let x = 1; x<strLength; x++){
             result = find2(trieRoot, stringVal, getAllListsOfAllSkipChars(stringVal, strLength -x, x));
+            if (result && result.length > 0){
+                break;
+            }
         }
         return result;
     }
